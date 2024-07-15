@@ -1,0 +1,28 @@
+.navbar{
+    margin: 10px 60px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    font-size: xx-large;
+}
+.navlist {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sign-in{
+    border: 2px solid black;
+    padding: 5px 10px;
+}
+
+.br-g{
+    border: 2px solid greenyellow;
+}
+.br-r{
+    border: 2px solid rgb(243, 89, 89);
+}
