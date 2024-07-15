@@ -1,14 +1,11 @@
-import { Arimo, Inter } from "next/font/google";
+import { Righteous } from "next/font/google";
 import Link from "next/link";
 
-const anton = Arimo({
-	weight: ["700"],
-	subsets: ["latin"],
-});
-const inter = Inter({
+const anton = Righteous({
 	weight: ["400"],
 	subsets: ["latin"],
 });
+
 export default function Navbar() {
 	return (
 		<div className="navbar">
@@ -18,12 +15,12 @@ export default function Navbar() {
 			>
 				PRICES.CO
 			</Link>
-			<ul className={inter.className + " navlist"}>
-				<li className="navlink">Tracker</li>
-				<li className="navlink">About</li>
-				<li className="navlink">Contact</li>
+			<ul className="navlist">
+				<li className="navlink">TRACKER</li>
+				<li className="navlink">ABOUT</li>
+				<li className="navlink">CONTACT</li>
 			</ul>
-			<div className={inter.className + " sign-in"}>Sign in</div>
+			<button className="sign-in">SIGN IN</button>
 		</div>
 	);
 }
