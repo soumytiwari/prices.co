@@ -1,6 +1,5 @@
 "use client";
 import Navbar from "@/components/navbar";
-import { before } from "node:test";
 import { KeyboardEvent, useState } from "react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
