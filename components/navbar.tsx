@@ -10,7 +10,7 @@ export default function Navbar() {
 	return (
 		<div className="navbar">
 			<Link
-				href="/track"
+				href="/"
 				className={anton.className + " logo"}
 			>
 				PRICES.CO
@@ -20,7 +20,7 @@ export default function Navbar() {
 				<li className="navlink">ABOUT</li>
 				<li className="navlink">CONTACT</li>
 			</ul>
-			<button className="sign-in">SIGN IN</button>
+			<button className="sign-in"></button>
 		</div>
 	);
 }
