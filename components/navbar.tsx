@@ -11,7 +11,7 @@ export default function Navbar() {
 		<div className="navbar">
 			<Link
 				href="/"
-				className={anton.className + " logo"}
+				className={anton.className + " b-logo"}
 			>
 				PRICES.CO
 			</Link>

@@ -1,11 +1,15 @@
 .navbar{
-    margin: 0px 60px;
+    width: 100%;
+    padding: 0px 60px;
     height: 10vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0));
+    z-index: 99;
 }
-.logo{
+.b-logo{
     font-size: xx-large;
 }
 .navlist {
@@ -18,7 +22,7 @@
 
 .sign-in{
     width: 85px;
-    height: 40px;
+    height: 38px;
     padding: 5px 10px;
     position: relative;
     border: 2px solid white;
@@ -58,6 +62,8 @@
 .sign-in:hover:after {
     top: -100%;
 }
+
+/* ===================================================== */
 
 .bg{
     opacity: 0.9;
@@ -191,6 +197,53 @@
 .start:hover::after{
     top: -100%;
 }
+
+/* =========================================== */
+
+.scrollContainer {
+    width: 100%;
+    overflow: hidden;
+    background-color: rgb(40, 40, 40); /* Adjust the background color as needed */
+    padding: 20px 0;
+    position: relative;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes scroll {
+    from {
+      transform: translateX(0%);
+    }
+    to{
+      transform: translateX(-157%);
+    }
+}
+.scroll{
+    display:flex;
+    /* animation: 15s scroll infinite linear; */
+}
+
+.scroll:hover {
+    animation-play-state: paused;
+}
+
+.logoItem {
+    flex: 0 0 auto;
+    padding: 0 60px;
+}
+  
+.scroll img{
+    filter: brightness(0) invert(1);
+    /* flex-shrink: 0; */
+    width: auto;
+    height: 100px;
+}
+
+/* ====================================================== */
+
+  
 
 
 
