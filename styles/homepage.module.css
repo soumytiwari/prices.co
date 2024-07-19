@@ -1,0 +1,60 @@
+.main_container{
+    color: black;
+}
+
+.trendTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btncontainer{
+    padding: 0px 60px;
+}
+
+.scrollbtn{
+    border: 2px solid gray;
+    padding: 5px 10px;
+    margin: 10px;
+    color: gray;
+    transition: all 0.2s ease-in;
+}
+.scrollbtn:hover{
+    background-color: gray;
+    color: white;
+    transform: scaleX(1.6);
+}
+
+.scrollbtn svg{
+    font-size: 20px;
+}
+
+.trends{
+    padding-top: 100px;
+    padding-left: 60px;
+}
+
+.trends h1{
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.card_container {
+    padding: 20px 0px;
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.card_container::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+.br-g{
+    border: 2px solid greenyellow;
+}
+.br-r{
+    border: 2px solid rgb(243, 89, 89);
+}
