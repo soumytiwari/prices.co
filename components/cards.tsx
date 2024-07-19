@@ -50,11 +50,11 @@ export default function Cards({
 						>
 							<stop
 								offset={`${partstar * 100}%`}
-								stop-color="gold"
+								stopColor="gold"
 							/>
 							<stop
 								offset="0%"
-								stop-color="gray"
+								stopColor="gray"
 							/>
 						</linearGradient>
 					</defs>

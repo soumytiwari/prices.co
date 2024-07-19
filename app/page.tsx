@@ -4,7 +4,7 @@ import Brands from "@/components/brands";
 import Cards from "@/components/cards";
 import style from "@/styles/homepage.module.css";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const logos = [
 	"/logos/amazon-logo.png",
@@ -59,16 +59,37 @@ let products = [
 ];
 export default function Home() {
 	const scrollContainerRef = useRef<HTMLDivElement>(null);
+	const [scrollInterval, setScrollInterval] = useState<NodeJS.Timeout | null>(
+		null
+	);
 
-	const scrollRight = () => {
+	const scroll = (direction: "left" | "right") => {
 		if (scrollContainerRef.current) {
-			scrollContainerRef.current.scrollLeft += 100; // Adjust the value as needed
+			const scrollAmount = direction === "right" ? 100 : -100;
+			scrollContainerRef.current.scrollBy({
+				left: scrollAmount,
+				behavior: "smooth",
+			});
 		}
 	};
 
-	const scrollLeft = () => {
-		if (scrollContainerRef.current) {
-			scrollContainerRef.current.scrollLeft -= 100; // Adjust the value as needed
+	const startScrolling = (direction: "left" | "right") => {
+		const interval = setInterval(() => {
+			if (scrollContainerRef.current) {
+				const scrollAmount = direction === "right" ? 100 : -100; // Adjust the value for faster scrolling
+				scrollContainerRef.current.scrollBy({
+					left: scrollAmount,
+					behavior: "smooth",
+				});
+			}
+		}, 50); // Adjust the interval for speed
+		setScrollInterval(interval);
+	};
+
+	const stopScrolling = () => {
+		if (scrollInterval) {
+			clearInterval(scrollInterval);
+			setScrollInterval(null);
 		}
 	};
 	return (
@@ -82,13 +103,19 @@ export default function Home() {
 						<div className={style.btncontainer}>
 							<button
 								className={style.scrollbtn}
-								onClick={scrollLeft}
+								onClick={() => scroll("left")}
+								onMouseDown={() => startScrolling("left")}
+								onMouseUp={stopScrolling}
+								onMouseLeave={stopScrolling}
 							>
 								<BsArrowLeft />
 							</button>
 							<button
 								className={style.scrollbtn}
-								onClick={scrollRight}
+								onClick={() => scroll("right")}
+								onMouseDown={() => startScrolling("right")}
+								onMouseUp={stopScrolling}
+								onMouseLeave={stopScrolling}
 							>
 								<BsArrowRight />
 							</button>
