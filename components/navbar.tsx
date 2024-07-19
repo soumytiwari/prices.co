@@ -1,5 +1,6 @@
 import { Righteous } from "next/font/google";
 import Link from "next/link";
+import style from "@/styles/navbar.module.css";
 
 const anton = Righteous({
 	weight: ["400"],
@@ -8,19 +9,19 @@ const anton = Righteous({
 
 export default function Navbar() {
 	return (
-		<div className="navbar">
+		<div className={style.navbar}>
 			<Link
 				href="/"
-				className={anton.className + " b-logo"}
+				className={anton.className + " " + style.brandlogo}
 			>
 				PRICES.CO
 			</Link>
-			<ul className="navlist">
-				<li className="navlink">TRACKER</li>
-				<li className="navlink">ABOUT</li>
-				<li className="navlink">CONTACT</li>
+			<ul className={style.navlist}>
+				<li className={style.navlink}>TRACKER</li>
+				<li className={style.navlink}>ABOUT</li>
+				<li className={style.navlink}>CONTACT</li>
 			</ul>
-			<button className="sign-in"></button>
+			<button className={style.sign_in}></button>
 		</div>
 	);
 }

@@ -3,6 +3,7 @@
 import { KeyboardEvent, useState } from "react";
 import Navbar from "./navbar";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import styles from "@/styles/background.module.css";
 
 export default function Background({ images }: { images: string[] }) {
 	const [currentImage, setCurrentImage] = useState(0);
@@ -27,25 +28,25 @@ export default function Background({ images }: { images: string[] }) {
 	};
 	return (
 		<div
-			className="bg"
+			className={styles.bg}
 			style={{ backgroundImage: `url(${images[currentImage]})` }}
 		>
-			<div className="gradient">
+			<div className={styles.gradient}>
 				<Navbar />
-				<div className="ad">
+				<div className={styles.headlineContainer}>
 					<button>
 						<FiArrowLeft
-							className="arrbtn"
+							className={styles.arrowButton}
 							onClick={previousImage}
 						/>
 					</button>
-					<div className="headlines">
+					<div className={styles.headlines}>
 						<h1>Discover, Compare, and Save</h1>
 						<h2>on every purchase</h2>
 						<p>All in One Place</p>
-						<div className="lets-begin">
+						<div className={styles.getStarted}>
 							<input
-								className="m-input"
+								className={styles.main_input}
 								type="text"
 								placeholder="bags, sunglasses etc"
 								value={inputValue}
@@ -53,14 +54,14 @@ export default function Background({ images }: { images: string[] }) {
 								onKeyDown={handleKeyDown}
 							></input>
 							<button
-								className="start"
+								className={styles.start}
 								onClick={handleSearch}
 							></button>
 						</div>
 					</div>
 					<button>
 						<FiArrowRight
-							className="arrbtn"
+							className={styles.arrowButton}
 							onClick={nextImage}
 						/>
 					</button>

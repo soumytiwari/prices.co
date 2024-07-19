@@ -1,10 +1,11 @@
+import style from "@/styles/brand_logo.module.css";
 export default function Brands({ logos }: { logos: string[] }) {
 	return (
-		<div className="scrollContainer">
-			<div className="scroll">
+		<div className={style.logoContainer}>
+			<div className={style.scroll}>
 				{logos.concat(logos).map((logo, index) => (
 					<div
-						className="logoItem"
+						className={style.logoItem}
 						key={index}
 					>
 						<img
