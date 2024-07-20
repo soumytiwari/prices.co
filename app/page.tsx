@@ -1,7 +1,8 @@
 "use client";
 import Background from "@/components/background";
 import Brands from "@/components/brands";
-import Cards from "@/components/cards";
+import Cards from "@/components/productCards";
+import CategoryCards from "@/components/categoryCards";
 import style from "@/styles/homepage.module.css";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { useRef, useState } from "react";
@@ -24,6 +25,38 @@ const images = [
 	"/images/harper-sunday-HCfV9rQuIrs.jpg",
 	"/images/mali-902194.jpg",
 	"/images/vinicius-amnx-amano-V16owPoti24.jpg",
+];
+const catogaryimages = [
+	{
+		id: "11",
+		title: "Men clothing",
+		url: "/images/category_images/men_fashion.jpg",
+	},
+	{
+		id: "12",
+		title: "Women fashion",
+		url: "/images/category_images/wm-1.jpg",
+	},
+	{
+		id: "13",
+		title: "Accessories",
+		url: "/images/category_images/accessories.jpg",
+	},
+	{
+		id: "14",
+		title: "Electronics",
+		url: "/images/category_images/electronics.jpg",
+	},
+	{
+		id: "16",
+		title: "Health and Beauty",
+		url: "/images/category_images/beauty.jpg",
+	},
+	{
+		id: "15",
+		title: "Books and Magzines",
+		url: "/images/category_images/books.jpg",
+	},
 ];
 
 let products = [
@@ -76,7 +109,7 @@ export default function Home() {
 	const startScrolling = (direction: "left" | "right") => {
 		const interval = setInterval(() => {
 			if (scrollContainerRef.current) {
-				const scrollAmount = direction === "right" ? 100 : -100; // Adjust the value for faster scrolling
+				const scrollAmount = direction === "right" ? 300 : -300; // Adjust the value for faster scrolling
 				scrollContainerRef.current.scrollBy({
 					left: scrollAmount,
 					behavior: "smooth",
@@ -139,6 +172,27 @@ export default function Home() {
 						})}
 					</div>
 				</div>
+				<div className={style.trends}>
+					<h1>Top Selling</h1>
+					<div
+						// ref={scrollContainerRef}
+						className={style.card_container}
+					>
+						{products.map((item, index) => {
+							return (
+								<Cards
+									key={index}
+									id={item.id}
+									url={item.url}
+									title={item.title}
+									price={item.price}
+									rating={item.rating}
+								/>
+							);
+						})}
+					</div>
+				</div>
+				<CategoryCards content={catogaryimages} />
 			</div>
 		</div>
 	);

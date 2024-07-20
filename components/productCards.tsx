@@ -1,6 +1,6 @@
 import { SlHeart } from "react-icons/sl";
 import style from "@/styles/cards.module.css";
-import { IoStarOutline, IoStar, IoStarHalf } from "react-icons/io5";
+import { IoStar } from "react-icons/io5";
 
 const totalStars = 5;
 const colors = {
@@ -50,11 +50,11 @@ export default function Cards({
 						>
 							<stop
 								offset={`${partstar * 100}%`}
-								stopColor="gold"
+								stopColor={colors.orange}
 							/>
 							<stop
 								offset="0%"
-								stopColor="gray"
+								stopColor={colors.gray}
 							/>
 						</linearGradient>
 					</defs>
