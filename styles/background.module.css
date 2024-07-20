@@ -78,7 +78,7 @@
     background-color: rgba(88, 88, 88, 0.6);
     opacity: 0.9;
     font-size: 20px;
-    
+    border-radius: 5px;
 }
 
 .main_input[type=text]:focus {
@@ -97,7 +97,7 @@
     overflow: hidden;
     box-sizing: border-box;
     border: 2px solid white;
-
+    border-radius: 5px;
 }
 
 .start::before{

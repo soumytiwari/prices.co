@@ -1,5 +1,6 @@
 
 .card{
+    border-radius: 5px;
     color: black;
     width: 325px;
     height: 450px;
@@ -7,7 +8,7 @@
     /* overflow: hidden; */
     box-shadow: 0px 2px 4px rgb(0,0,0,0.2);
     margin-right: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     flex-shrink: 0;
 }
 
@@ -26,6 +27,7 @@
     justify-content: end;
     height: 70%;
     width: auto;
+    border-radius: 5px;
 }
 .rating {
     display: flex;

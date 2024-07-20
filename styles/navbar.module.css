@@ -13,12 +13,39 @@
     font-size: xx-large;
 }
 .navlist {
+    list-style: none;
+    font-size: 1em;
     width: 300px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position: relative;
 }
 
+.navlink {
+    margin: 0px 25px;
+    color: #909090;
+    cursor: pointer;
+    position: relative;
+    /* overflow: hidden; */
+    transition: 0.3s;
+}
+  
+.navlink::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+  
+.navlink:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
 
 .sign_in{
     width: 85px;
@@ -29,6 +56,7 @@
     opacity: 1;
     overflow: hidden;
     box-sizing: border-box;
+    border-radius: 5px;
 }
 
 .sign_in::before{
