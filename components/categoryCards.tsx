@@ -19,11 +19,15 @@ export default function CategoryCards({
 							id={item.id}
 							className={style.c}
 							style={{
-								backgroundImage: `url(${item.url})`,
 								gridArea: `card${index + 1}`,
 							}}
 						>
-							{item.title}
+							<div
+								className={style.gradient}
+								style={{ backgroundImage: `url(${item.url})` }}
+							>
+								{item.title}
+							</div>
 						</div>
 					);
 				})}

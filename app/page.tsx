@@ -35,7 +35,7 @@ const catogaryimages = [
 	{
 		id: "12",
 		title: "Women fashion",
-		url: "/images/category_images/wm-1.jpg",
+		url: "/images/category_images/women.jpg",
 	},
 	{
 		id: "13",
@@ -45,7 +45,7 @@ const catogaryimages = [
 	{
 		id: "14",
 		title: "Electronics",
-		url: "/images/category_images/electronics.jpg",
+		url: "/images/category_images/electronics.jpeg",
 	},
 	{
 		id: "16",
