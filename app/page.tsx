@@ -1,8 +1,8 @@
 "use client";
-import Background from "@/components/background";
-import Brands from "@/components/brands";
+import Background from "@/components/homepage/background";
+import Brands from "@/components/homepage/brands";
 import Cards from "@/components/productCards";
-import CategoryCards from "@/components/categoryCards";
+import CategoryCards from "@/components/homepage/categoryCards";
 import style from "@/styles/homepage.module.css";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { useRef, useState } from "react";

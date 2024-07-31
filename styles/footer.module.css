@@ -50,7 +50,7 @@
     margin-bottom: 10px;
 }
 .social_media a{
-    margin: 0px 5px;
+    margin: 0px 15px;
 }
 
 .brandlogo{
@@ -89,6 +89,7 @@
 .contact{
     display: flex;
     justify-content: space-evenly;
+    margin-right: 100px;
     /* border: 2px solid greenyellow; */
 }
 

@@ -16,7 +16,7 @@ export default function Footer() {
 
 	useEffect(() => {
 		const handleMouseMove = (e: MouseEvent) => {
-			parallaxIt(e, imgRef1.current, -3);
+			// parallaxIt(e, imgRef1.current, 0);
 			parallaxIt(e, imgRef2.current, -10);
 		};
 
@@ -65,12 +65,17 @@ export default function Footer() {
 			</div>
 			<div className={style.info_container}>
 				<div className={style.social}>
-					<Link
-						href="/"
-						className={anton.className + " " + style.brandlogo}
-					>
-						PRICES.CO
-					</Link>
+					<div>
+						<Link
+							href="/"
+							className={anton.className + " " + style.brandlogo}
+						>
+							PRICES.CO
+						</Link>
+						<p style={{ fontSize: "14px", fontStyle: "italic" }}>
+							"Shop Smarter with Us"
+						</p>
+					</div>
 					<div className={style.social_media}>
 						<Link href="">
 							<svg
