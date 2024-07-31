@@ -176,7 +176,7 @@ export default function Home() {
 					<h1>Top Selling</h1>
 					<div
 						// ref={scrollContainerRef}
-						className={style.card_container}
+						className={style.alt_card_container}
 					>
 						{products.map((item, index) => {
 							return (

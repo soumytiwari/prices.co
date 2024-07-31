@@ -48,6 +48,14 @@
     scrollbar-width: none;
 }
 
+.alt_card_container{
+    padding: 20px 0px;
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
 .card_container::-webkit-scrollbar {
     display: none;
 }
