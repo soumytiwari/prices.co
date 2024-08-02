@@ -1,6 +1,7 @@
 import { Righteous } from "next/font/google";
 import Link from "next/link";
 import style from "@/styles/navbar.module.css";
+import { KeyboardEventHandler, useState } from "react";
 
 const anton = Righteous({
 	weight: ["400"],
