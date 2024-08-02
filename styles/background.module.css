@@ -8,7 +8,7 @@
 }
 
 .gradient{
-    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0));
+    background-image: linear-gradient(rgba(0,0,0,0.5) 100%, rgba(0,0,0,0));
     /* opacity: 0.9; */
     /* background-color:rgb(0, 0, 0); */
 }
@@ -32,8 +32,8 @@
 
 .headlines h1{
     margin: auto;
-    font-size: 80px;
-    font-weight: 900;
+    font-size: 120px;
+    font-weight:bolder;
     opacity: 0.9;
 }
 
