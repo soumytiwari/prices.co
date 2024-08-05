@@ -9,9 +9,6 @@
     /* background-image: linear-gradient(rgba(0,0,0,0.9) 10%, rgba(0,0,0,0)); */
     z-index: 99;
 }
-.brandlogo{
-    font-size: xx-large;
-}
 .navlist {
     list-style: none;
     font-size: 1em;
