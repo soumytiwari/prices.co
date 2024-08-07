@@ -1,43 +1,51 @@
 "use client";
-import { Righteous } from "next/font/google";
+import { Righteous, Bebas_Neue } from "next/font/google";
 import style from "@/styles/footer.module.css";
 import Link from "next/link";
-import { Ref, useEffect, useRef } from "react";
+import {  useEffect, useRef } from "react";
 
-const anton = Righteous({
+const righteous = Righteous({
+	weight: ["400"],
+	subsets: ["latin"],
+});
+
+const Josefin = Bebas_Neue({
 	weight: ["400"],
 	subsets: ["latin"],
 });
 
 export default function Footer() {
 	const parallaxRef = useRef<HTMLDivElement>(null);
+	const headingRef = useRef<HTMLHeadingElement>(null);
 	const imgRef1 = useRef<HTMLImageElement>(null);
 	const imgRef2 = useRef<HTMLImageElement>(null);
 
 	useEffect(() => {
 		const handleMouseMove = (e: MouseEvent) => {
-			// parallaxIt(e, imgRef1.current, 0);
-			parallaxIt(e, imgRef2.current, -10);
+			parallaxIt(e, headingRef.current, 30);
+			parallaxIt(e, imgRef2.current, -50);
 		};
 
 		const parallaxIt = (
 			e: MouseEvent,
-			target: HTMLImageElement | null,
+			target: HTMLImageElement | HTMLHeadingElement | null,
 			movement: number
 		) => {
 			const container = parallaxRef.current;
 			const relX = e.pageX - container!.offsetLeft;
-			const relY = e.pageY - container!.offsetTop;
+			// const relY = e.pageY - container!.offsetTop;
 
 			target!.style.transform = `translate(${
 				((relX - container!.offsetWidth / 2) / container!.offsetWidth) *
 				movement
-			}px, ${
-				((relY - container!.offsetHeight / 2) /
-					container!.offsetHeight) *
-				movement
-			}px)`;
+			}px, 0px)`;
 		};
+		//  replace following code with O (keep px) above, To apply effect in Y axis
+		// ${
+		// 	((relY - container!.offsetHeight / 2) /
+		// 		container!.offsetHeight) *
+		// 	movement
+		// }
 
 		const container = parallaxRef.current;
 		container!.addEventListener("mousemove", handleMouseMove);
@@ -52,23 +60,30 @@ export default function Footer() {
 				className={style.extra}
 				ref={parallaxRef}
 			>
+				<h1 
+					className={Josefin.className}
+					style={{ marginBottom:'220px', fontSize: '190px', color:'rgba(40, 40, 40);'}}
+					ref = {headingRef}
+					>Shop Smarter with Us</h1>
 				<img
-					src="/images/b.jpg"
+					src="/images/b.png"
 					ref={imgRef1}
+					style={{position:'absolute'}}
 				></img>
 				<img
 					src="/images/shopping.png"
 					className={style.parallaximg}
 					ref={imgRef2}
 				></img>
-				<h1>Shop Smarter with Us!</h1>
+				<h1 className={righteous .className} style={{ marginTop:'360px', fontSize: '15px', color:'rgba(255, 255, 255, 0.3);'}}>PRICES.CO</h1>
+
 			</div>
 			<div className={style.info_container}>
 				<div className={style.social}>
 					<div>
 						<Link
 							href="/"
-							className={anton.className + " " + style.brandlogo}
+							className={righteous.className + " " + style.brandlogo}
 						>
 							PRICES.CO
 						</Link>
@@ -131,7 +146,7 @@ export default function Footer() {
 				</div>
 				<div className={style.contact}>
 					<div className={style.partition}>
-						<h3 className={anton.className + " " + style.head}>
+						<h3 className={righteous.className + " " + style.head}>
 							PRICES.CO
 						</h3>
 						<ul className={style.content}>

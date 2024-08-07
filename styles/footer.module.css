@@ -10,12 +10,9 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 40px;
+    /* font-size: 40px; */
     font-weight: 600;
-    /* background-image: url('/images/shopping.png');
-    background-size: contain;
-    background-repeat: no-repeat; 
-    background-position: top;*/
+    overflow: hidden;
 }
 
 .extra img{
@@ -26,8 +23,9 @@
 }
 .extra h1{
     position: absolute;
-    display: block;
 }
+
+
 
 .parallaximg{
     position: absolute;
