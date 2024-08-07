@@ -1,14 +1,20 @@
 import { useState } from "react";
 import style from "@/styles/searchBar.module.css";
 import BrandLogo from "../brand";
-import { IoIosSearch } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { TbShoppingBag } from "react-icons/tb";
+import { FaRegUser } from "react-icons/fa6";
 
 export default function SearchBar() {
 	const [inputValue, setInput] = useState("");
+	const [categoryActive, setCategoryactive] = useState(false);
 	const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
 		if (event.key == "Enter") {
 			console.log(inputValue);
 		}
+	};
+	const handCategoryclick = () => {
+		setCategoryactive(!categoryActive);
 	};
 	const handleSearch = () => {
 		console.log("pressed");
@@ -17,6 +23,14 @@ export default function SearchBar() {
 		<div className={style.searchBar}>
 			<BrandLogo />
 			<div className={style.inputBar}>
+				<button
+					className={style.categoryBtn}
+					onMouseDownCapture={handCategoryclick}
+				>
+					<p>Categories</p>
+					{categoryActive? <IoIosArrowDown />: <IoIosArrowUp/>} 
+					
+				</button>
 				<input
 					className={style.main_input}
 					type="text"
@@ -48,6 +62,11 @@ export default function SearchBar() {
 					></line>
 				</svg>
 			</div>
+			<div className={style.icon}>
+				<TbShoppingBag size={'1.5em'}	style={{ marginRight:'20px'}}/>
+				<FaRegUser size={'1.2em'}/>
+			</div>
+			
 		</div>
 	);
 }
