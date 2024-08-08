@@ -1,5 +1,5 @@
 "use client";
-import { Righteous, Bebas_Neue } from "next/font/google";
+import { Righteous, Bebas_Neue,Barlow } from "next/font/google";
 import style from "@/styles/footer.module.css";
 import Link from "next/link";
 import {  useEffect, useRef } from "react";
@@ -9,8 +9,8 @@ const righteous = Righteous({
 	subsets: ["latin"],
 });
 
-const Josefin = Bebas_Neue({
-	weight: ["400"],
+const Josefin = Barlow({
+	weight: ["400","200",'600','700','800'],
 	subsets: ["latin"],
 });
 
@@ -22,7 +22,7 @@ export default function Footer() {
 
 	useEffect(() => {
 		const handleMouseMove = (e: MouseEvent) => {
-			parallaxIt(e, headingRef.current, 30);
+			parallaxIt(e, headingRef.current, 50);
 			parallaxIt(e, imgRef2.current, -50);
 		};
 
@@ -61,10 +61,10 @@ export default function Footer() {
 				ref={parallaxRef}
 			>
 				<h1 
-					className={Josefin.className}
-					style={{ marginBottom:'220px', fontSize: '190px', color:'rgba(40, 40, 40);'}}
+					className={righteous.className}
+					style={{ marginBottom:'250px', fontSize: '190px', color:'rgba(40, 40, 40);', letterSpacing:'60px'}}
 					ref = {headingRef}
-					>Shop Smarter with Us</h1>
+					>PRICES.CO</h1>
 				<img
 					src="/images/b.png"
 					ref={imgRef1}
