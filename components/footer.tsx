@@ -61,7 +61,7 @@ export default function Footer() {
 			>
 				<h1 
 					className={righteous.className}
-					style={{ marginBottom:'250px', fontSize: '190px', color:'rgba(40, 40, 40);', letterSpacing:'60px'}}
+					style={{ marginBottom:'250px', fontSize: '190px', color:'rgba(40, 40, 40)', letterSpacing:'60px'}}
 					ref = {headingRef}
 					>PRICES.CO</h1>
 				<img
@@ -73,7 +73,7 @@ export default function Footer() {
 					className={style.parallaximg}
 					ref={imgRef2}
 				></img>
-				<h1 className={righteous .className} style={{ marginTop:'360px', fontSize: '15px', color:'rgba(255, 255, 255, 0.3);'}}>PRICES.CO</h1>
+				<h1 className={righteous .className} style={{ marginTop:'360px', fontSize: '15px', color:'rgba(255, 255, 255, 0.3)'}}>PRICES.CO</h1>
 
 			</div>
 			<div className={style.info_container}>
