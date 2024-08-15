@@ -17,7 +17,6 @@ const Josefin = Barlow({
 export default function Footer() {
 	const parallaxRef = useRef<HTMLDivElement>(null);
 	const headingRef = useRef<HTMLHeadingElement>(null);
-	const imgRef1 = useRef<HTMLImageElement>(null);
 	const imgRef2 = useRef<HTMLImageElement>(null);
 
 	useEffect(() => {
@@ -38,9 +37,9 @@ export default function Footer() {
 			target!.style.transform = `translate(${
 				((relX - container!.offsetWidth / 2) / container!.offsetWidth) *
 				movement
-			}px, 0px)`;
+			}px, 0px)`; //  <---- this 0
 		};
-		//  replace following code with O (keep px) above, To apply effect in Y axis
+		//  replace following code with 0 (keep px) above, To apply effect in Y axis
 		// ${
 		// 	((relY - container!.offsetHeight / 2) /
 		// 		container!.offsetHeight) *
@@ -67,7 +66,6 @@ export default function Footer() {
 					>PRICES.CO</h1>
 				<img
 					src="/images/b.png"
-					ref={imgRef1}
 					style={{position:'absolute'}}
 				></img>
 				<img
