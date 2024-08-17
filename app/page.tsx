@@ -6,6 +6,7 @@ import CategoryCards from "@/components/homepage/categoryCards";
 import style from "@/styles/homepage.module.css";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { useRef, useState } from "react";
+import Navbar from "@/components/navbar";
 
 const logos = [
 	"/logos/amazon-logo.png",
@@ -192,6 +193,7 @@ export default function Home() {
 	};
 	return (
 		<div>
+			<Navbar/>
 			<Background images={images} />
 			<Brands logos={logos} />
 			<div className={style.main_container}>
