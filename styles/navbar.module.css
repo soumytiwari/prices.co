@@ -7,7 +7,7 @@
     justify-content: space-between;
     position: fixed;
     /* background-image: linear-gradient(rgba(0,0,0,0.9) 10%, rgba(0,0,0,0)); */
-    z-index: 99;
+    z-index: 1;
 }
 .navlist {
     list-style: none;

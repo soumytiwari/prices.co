@@ -38,7 +38,6 @@ export default function Background({ images }: { images: string[] }) {
 			style={{ backgroundImage: `url(${images[currentImage]})` }}
 		>
 			<div className={styles.gradient}>
-				<Navbar />
 				<div className={styles.headlineContainer}>
 					<button>
 						<FiArrowLeft
