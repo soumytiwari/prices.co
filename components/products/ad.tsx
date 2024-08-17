@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react';
 export default function Ad() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const slides = [
-        { id: 1, imgURL: '/images/ads/cloth.jpeg', color:'#4551b8db', text: 'Slide 1' },
-        { id: 2, imgURL: '/images/ads/sale.jpeg',  color:'#ff0000db', text: 'Slide 2' },
-        { id: 3, imgURL: '/images/ads/e.jpg',      color:'#ffffffdb', text: 'Slide 3' },
-        { id: 4, imgURL: '/images/ads/apple.jpg',  color:'#f0f9a0db', text: 'Slide 4' },
-        { id: 5, imgURL: '/images/ads/glass.jpg',  color:'#ffffffdb', text: 'Slide 5' },
-        { id: 6, imgURL: '/images/ads/wander.jpg', color:'#ffffffdb', text: 'Slide 6' },
-        { id: 7, imgURL: '/images/ads/c.jpg',      color:'#f797e2db', text: 'Slide 7' },
+        { id: 1, imgURL: '/images/ads/cloth.jpeg', color:'#4551b8db', secondaryColor: '',text: 'Slide 1' },
+        { id: 2, imgURL: '/images/ads/sale.jpeg',  color:'#ff0000db', secondaryColor: '',text: 'Slide 2' },
+        { id: 3, imgURL: '/images/ads/e.jpg',      color:'#ffffffdb', secondaryColor: '',text: 'Slide 3' },
+        { id: 4, imgURL: '/images/ads/apple.jpg',  color:'#f0f9a0db', secondaryColor: '',text: 'Slide 4' },
+        { id: 5, imgURL: '/images/ads/glass.jpg',  color:'#ffffffdb', secondaryColor: '',text: 'Slide 5' },
+        { id: 6, imgURL: '/images/ads/wander.jpg', color:'#ffffffdb', secondaryColor: '',text: 'Slide 6' },
+        { id: 7, imgURL: '/images/ads/c.jpg',      color:'#f797e2db', secondaryColor: '',text: 'Slide 7' },
     ];
     const totalSlides = slides.length;
 
@@ -36,7 +36,7 @@ export default function Ad() {
                         style={{ backgroundImage: `url(${slide.imgURL})` }}
                     >
                         <div className={styles.content} style={{background: `linear-gradient(to right,${slide.color} 10%, rgb(0,0,0,0))`}}>
-                            <span style={{marginBottom:'40px'}}>#Big Fashion Sale</span>
+                            <span>#Big Fashion Sale</span>
                             <h1 className={styles.bold}>Limited time offer!</h1>
                             <h1 className={styles.bold}>
                                 Save up to{' '}
@@ -44,6 +44,7 @@ export default function Ad() {
                                     50%
                                 </span>
                             </h1>
+                            <h2 style={{marginTop:'30px'}}>Redefine your Style evryday</h2>
                             <button className={styles.btn}></button>
                         </div>
                     </div>
