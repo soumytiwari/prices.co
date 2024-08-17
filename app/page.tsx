@@ -25,6 +25,7 @@ const images = [
 	"/images/harper-sunday-HCfV9rQuIrs.jpg",
 	"/images/mali-902194.jpg",
 	"/images/vinicius-amnx-amano-V16owPoti24.jpg",
+	"/images/red.jpg",
 ];
 const catogaryimages = [
 	{

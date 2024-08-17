@@ -28,6 +28,7 @@
     height: 70%;
     width: auto;
     border-radius: 5px;
+    background: radial-gradient(circle, white,gray);
 }
 .rating {
     display: flex;
