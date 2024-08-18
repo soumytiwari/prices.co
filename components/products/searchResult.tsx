@@ -1,0 +1,130 @@
+import styles from '@/styles/searchResults.module.css'
+import Cards from '../productCards';
+
+let products = [
+	{
+		id: "1",
+		url: "",
+		title: "phone lorem epsum dolor sit",
+		price: "$2000",
+		rating: 4.5,
+	},
+	{
+		id: "2",
+		url: "",
+		title: "watch tres do unus",
+		price: "$2000",
+		rating: 4,
+	},
+	{ id: "3", url: "", title: "nihil nihil nihil", price: "$2000", rating: 3 },
+	{
+		id: "4",
+		url: "",
+		title: "blade of miquella , malenaia",
+		price: "$2000",
+		rating: 3.7,
+	},
+	{
+		id: "5",
+		url: "",
+		title: "starscourage rhadhan",
+		price: "$2000",
+		rating: 4.4,
+	},
+	{
+		id: "6",
+		url: "",
+		title: "phone lorem epsum dolor sit",
+		price: "$2000",
+		rating: 4.5,
+	},
+	{
+		id: "7",
+		url: "",
+		title: "watch tres do unus",
+		price: "$2000",
+		rating: 4,
+	},
+	{ id: "8", url: "", title: "nihil nihil nihil", price: "$2000", rating: 3 },
+	{
+		id: "9",
+		url: "",
+		title: "blade of miquella , malenaia",
+		price: "$2000",
+		rating: 3.7,
+	},
+	{
+		id: "10",
+		url: "",
+		title: "starscourage rhadhan",
+		price: "$2000",
+		rating: 4.4,
+	},
+	{
+		id: "11",
+		url: "",
+		title: "phone lorem epsum dolor sit",
+		price: "$2000",
+		rating: 4.5,
+	},
+	{
+		id: "12",
+		url: "",
+		title: "watch tres do unus",
+		price: "$2000",
+		rating: 4,
+	},
+	{
+		id: "13",
+		url: "",
+		title: "nihil nihil nihil",
+		price: "$2000",
+		rating: 3,
+	},
+	{
+		id: "14",
+		url: "",
+		title: "blade of miquella , malenaia",
+		price: "$2000",
+		rating: 3.7,
+	},
+	{
+		id: "15",
+		url: "",
+		title: "starscourage rhadhan",
+		price: "$2000",
+		rating: 4.4,
+	},
+];
+export default function ResultProducts() {
+    return(
+        <div className= {styles.resultsContainer}>
+            <h1 className={styles.searchTitle}>Result <sup>1</sup></h1>
+            <div className={styles.filters}>
+                <div style={{display:'flex'}}>
+                    <button className={styles.filterbtns}>FILTERS<span style={{marginLeft:'10px'}}>5</span></button>
+                    <span className={styles.divider}></span>
+                    <div>
+                        <button className={styles.filterbtns}>COLOR X</button>
+                        <button className={styles.filterbtns}>SIZE X</button>
+                    </div>
+                </div>
+                <button className={styles.filterbtns}>SORT BY</button>
+            </div>
+            <div className={styles.cardContainer}>
+                {products.map((item, index) => {
+                    return (
+                        <Cards
+                            key={index}
+                            id={item.id}
+                            url={item.url}
+                            title={item.title}
+                            price={item.price}
+                            rating={item.rating}
+                        />
+                    );
+                })}
+            </div>
+        </div>
+    )
+}
