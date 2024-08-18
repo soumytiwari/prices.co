@@ -1,6 +1,7 @@
 import styles from '@/styles/searchResults.module.css'
 import Cards from '../productCards';
 import { useState } from 'react';
+import { IoCloseOutline } from "react-icons/io5";
 
 let products = [
 	{
@@ -96,6 +97,27 @@ let products = [
 		price: "$2000",
 		rating: 4.4,
 	},
+	{
+		id: "16",
+		url: "",
+		title: "nihil nihil nihil",
+		price: "$2000",
+		rating: 3,
+	},
+	{
+		id: "17",
+		url: "",
+		title: "blade of miquella , malenaia",
+		price: "$2000",
+		rating: 3.7,
+	},
+	{
+		id: "18",
+		url: "",
+		title: "starscourage rhadhan",
+		price: "$2000",
+		rating: 4.4,
+	},
 ];
 
 const itemsPerPage = 16;
@@ -137,15 +159,16 @@ export default function ResultProducts() {
                 <div style={{display:'flex'}}>
                     <button className={styles.filterbtns}>FILTERS<span style={{marginLeft:'10px'}}>5</span></button>
                     <span className={styles.divider}></span>
-                    <div>
-                        <button className={styles.filterbtns}>COLOR X</button>
-                        <button className={styles.filterbtns}>SIZE X</button>
+                    <div style={{display:'flex',}}>
+                        <button className={styles.filterbtns + ' ' + styles.filterItems}>COLOR<IoCloseOutline style={{margin:'0px 3px', fontSize:'18px'}}/>
+						</button>
+                        <button className={styles.filterbtns + ' ' + styles.filterItems}>SIZE <IoCloseOutline style={{margin:'0px 3px', fontSize:'18px'}}/></button>
                     </div>
                 </div>
                 <button className={styles.filterbtns}>SORT BY</button>
             </div>
             <div className={styles.cardContainer}>
-                {products.map((item, index) => {
+                {displayedProducts.map((item, index) => {
                     return (
                         <Cards
                             key={index}

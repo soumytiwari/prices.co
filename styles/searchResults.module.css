@@ -17,17 +17,24 @@
 }
 
 .divider{
-    width: 2px;
-    height: 30px;
+    width: 1px;
+    height: 20px;
     background-color: #333;
-    margin-right:10px;
+    margin: auto 20px;
 }
 .filterbtns{
-    margin-right: 10px;
-    padding: 2px 8px;
-    border-radius: 5px;
+    /* margin: 0px 10px; */
+    padding: 4px 8px;
+    border-radius: 4px;
     color: black;
-    border: 2px solid black;
+    border: 1px solid black;
+    font-size: 14px;
+}
+
+.filterItems{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
 }
 
 .cardContainer{
@@ -47,8 +54,8 @@
 
 .pageButton {
     margin: 0 5px;
-    padding: 8px 12px;
-    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border: 2px solid #242424;
     background-color: #fff;
     color: #333;
     cursor: pointer;
@@ -63,9 +70,9 @@
     background-color: #f9f9f9;
 }
 
-.pageButton:hover:not(:disabled) {
+/* .pageButton:hover:not(:disabled) {
     background-color: #f0f0f0;
-}
+} */
 
 .pageInfo {
     margin: 0 10px;
