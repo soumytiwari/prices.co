@@ -1,5 +1,6 @@
 import styles from '@/styles/searchResults.module.css'
 import Cards from '../productCards';
+import { useState } from 'react';
 
 let products = [
 	{
@@ -96,7 +97,39 @@ let products = [
 		rating: 4.4,
 	},
 ];
+
+const itemsPerPage = 16;
 export default function ResultProducts() {
+
+	const [currentPage, setCurrentPage] = useState(1);
+
+    const totalPages = Math.ceil(products.length / itemsPerPage);
+
+    const handleNextPage = () => {
+        if (currentPage < totalPages) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
+    const handlePreviousPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
+    const handleFirstPage = () => {
+        setCurrentPage(1);
+    };
+
+    const handleLastPage = () => {
+        setCurrentPage(totalPages);
+    };
+
+    const displayedProducts = products.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+    );
+
     return(
         <div className= {styles.resultsContainer}>
             <h1 className={styles.searchTitle}>Result <sup>1</sup></h1>
@@ -124,6 +157,39 @@ export default function ResultProducts() {
                         />
                     );
                 })}
+            </div>
+			<div className={styles.pagination}>
+                <button 
+                    className={styles.pageButton} 
+                    onClick={handleFirstPage}
+                    disabled={currentPage === 1}
+                >
+                    &laquo;
+                </button>
+                <button 
+                    className={styles.pageButton} 
+                    onClick={handlePreviousPage}
+                    disabled={currentPage === 1}
+                >
+                    &lsaquo; Previous
+                </button>
+                <span className={styles.pageInfo}>
+                    Page {currentPage} of {totalPages}
+                </span>
+                <button 
+                    className={styles.pageButton} 
+                    onClick={handleNextPage}
+                    disabled={currentPage === totalPages}
+                >
+                    Next &rsaquo;
+                </button>
+                <button 
+                    className={styles.pageButton} 
+                    onClick={handleLastPage}
+                    disabled={currentPage === totalPages}
+                >
+                    &raquo;
+                </button>
             </div>
         </div>
     )
