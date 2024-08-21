@@ -1,7 +1,7 @@
 import styles from '@/styles/searchResults.module.css'
 import Cards from '../productCards';
 import { useState } from 'react';
-import { IoCloseOutline } from "react-icons/io5";
+import FilterMenu from './filters';
 
 let products = [
 	{
@@ -155,18 +155,7 @@ export default function ResultProducts() {
     return(
         <div className= {styles.resultsContainer}>
             <h1 className={styles.searchTitle}>Result <sup>1</sup></h1>
-            <div className={styles.filters}>
-                <div style={{display:'flex'}}>
-                    <button className={styles.filterbtns}>FILTERS<span style={{marginLeft:'10px'}}>5</span></button>
-                    <span className={styles.divider}></span>
-                    <div style={{display:'flex',}}>
-                        <button className={styles.filterbtns + ' ' + styles.filterItems}>COLOR<IoCloseOutline style={{margin:'0px 3px', fontSize:'18px'}}/>
-						</button>
-                        <button className={styles.filterbtns + ' ' + styles.filterItems}>SIZE <IoCloseOutline style={{margin:'0px 3px', fontSize:'18px'}}/></button>
-                    </div>
-                </div>
-                <button className={styles.filterbtns}>SORT BY</button>
-            </div>
+			<FilterMenu/>
             <div className={styles.cardContainer}>
                 {displayedProducts.map((item, index) => {
                     return (
