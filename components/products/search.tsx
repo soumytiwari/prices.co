@@ -5,16 +5,16 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { TbShoppingBag } from "react-icons/tb";
 import { FaRegUser } from "react-icons/fa6";
 
+
+const catg = ['All  ','Appliances','Beauty','Clothing & Accessories', 'Electronics & Accessories','Gifts','HandBags','Health','Home & Kitchen','Jeweleries','Shoes and footwaer','Watches']
 export default function SearchBar() {
 	const [inputValue, setInput] = useState("");
-	const [categoryActive, setCategoryactive] = useState(false);
+	const [category, setCategory] = useState('Category');
+	const [iscategoryactive, setCategorystatus] = useState(false);
 	const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
 		if (event.key == "Enter") {
 			console.log(inputValue);
 		}
-	};
-	const handCategoryclick = () => {
-		setCategoryactive(!categoryActive);
 	};
 	const handleSearch = () => {
 		console.log("pressed");
@@ -25,12 +25,20 @@ export default function SearchBar() {
 			<div className={style.inputBar}>
 				<button
 					className={style.categoryBtn}
-					onMouseDownCapture={handCategoryclick}
+					onMouseDownCapture={()=>setCategorystatus(!iscategoryactive)}
+
 				>
-					<p>Categories</p>
-					{categoryActive? <IoIosArrowDown />: <IoIosArrowUp/>} 
+					<p style={{marginRight:'10px'}}>{category}</p>
+					{iscategoryactive? <IoIosArrowDown />: <IoIosArrowUp/>} 
 					
 				</button>
+				<div className={style.catogoriesList} style={iscategoryactive?{display:"flex"}:{display:'none'}}>
+					{catg.map((item,indx)=>{
+						return(
+							<button onClick={()=>setCategory(item === 'All'?'Category':item)} key={indx}className={style.catg_item}>{item}</button>
+						)
+					})}
+				</div>
 				<input
 					className={style.main_input}
 					type="text"
