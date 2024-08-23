@@ -13,19 +13,7 @@ let filtertypes = [
         Size: ['XXS','XS','S', 'M','L','XL', 'XXL']
     },
     {
-        Price:['$0 - $50', '$50 - $100', '$100 - $150','$100 - $150','$150 - $200','$200 - $300', '$300 - $500' ]
-    },
-    {
-        Price:['$0 - $50', '$50 - $100', '$100 - $150','$100 - $150','$150 - $200','$200 - $300', '$300 - $500' ]
-    },
-    {
-        Price:['$0 - $50', '$50 - $100', '$100 - $150','$100 - $150','$150 - $200','$200 - $300', '$300 - $500' ]
-    },
-    {
-        Brands:['Adidas', 'Nike', 'Puma','Wrogn','Gucci','Ralph Lauren', 'Vincent','Adidas', 'Nike', 'Puma','Wrogn','Gucci','Ralph Lauren', 'Vincent','Adidas', 'Nike', 'Puma','Wrogn','Gucci','Ralph Lauren', 'Vincent' ]
-    },
-    {
-        Brands:['Adidas', 'Nike', 'Puma','Wrogn','Gucci','Ralph Lauren', 'Vincent','Adidas', 'Nike', 'Puma','Wrogn','Gucci','Ralph Lauren', 'Vincent','Adidas', 'Nike', 'Puma','Wrogn','Gucci','Ralph Lauren', 'Vincent' ]
+        Price:['$0 - $50', '$50 - $100', '$100 - $150','$150 - $200','$200 - $300', '$300 - $500', '$500 - $1000', '$1000+' ]
     },
     {
         Brands:['Adidas', 'Nike', 'Puma','Wrogn','Gucci','Ralph Lauren', 'Vincent','Adidas', 'Nike', 'Puma','Wrogn','Gucci','Ralph Lauren', 'Vincent','Adidas', 'Nike', 'Puma','Wrogn','Gucci','Ralph Lauren', 'Vincent' ]
@@ -34,10 +22,13 @@ let filtertypes = [
         Rating :  ['★', '★★', '★★★', '★★★★', '★★★★★']
     }
 ]
+
+const sort = ['NONE','DATE', 'PRICE']
 export default function FilterMenu() {
     const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
     const [isFilterOn, setFilterStatus] = useState(false);
-
+    const [sortBy, setSortBy] = useState('SORT BY');
+	const [issortactive, setSortstatus] = useState(false);
 
     const selectfilter = (filterValue: string) => {
         setSelectedFilters((prevFilters:string[]) => {
@@ -83,9 +74,15 @@ export default function FilterMenu() {
                         ))}
                     </div>
                 </div>
-                <div>
-                    <button style={{display:'flex', alignItems:'center'}} className={styles.filterbtns}>SORT BY <MdOutlineSort/></button>
-
+                <div style={{position:'relative'}}>
+                    <button onClick={()=>setSortstatus(!issortactive)}style={{display:'flex', alignItems:'center'}} className={styles.filterbtns}>{sortBy==='NONE'?'SORT BY':sortBy}<MdOutlineSort style={{marginLeft:'5px'}}/></button>
+                    <div className={styles.catogoriesList} style={issortactive?{display:"flex"}:{display:'none'}}>
+					{sort.map((item,indx)=>{
+						return(
+							<button onClick={()=>setSortBy(item)} key={indx}className={styles.catg_item}>{item}</button>
+						)
+					})}
+				</div>
                 </div>
             </div>
             <div className={styles.overlay} style={isFilterOn?{display:'flex'}:{display:'none'}}>
