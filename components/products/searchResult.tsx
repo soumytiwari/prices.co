@@ -152,6 +152,9 @@ export default function ResultProducts() {
             });
 			setSorted(sort);
         }
+		else if(sortBy === 'NONE') {
+			setSorted(products);
+		}
 	},[sortBy])
 
     const handleNextPage = () => {
