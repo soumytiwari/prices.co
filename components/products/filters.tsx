@@ -1,9 +1,9 @@
 'use client'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styles from '@/styles/filterMenu.module.css';
 import { IoCloseOutline } from 'react-icons/io5';
 import { MdOutlineSort } from "react-icons/md";
-import { CgEnter } from 'react-icons/cg';
+import { MyContext } from './context';
 
 let filtertypes = [
     {
@@ -27,8 +27,8 @@ const sort = ['NONE','DATE', 'PRICE']
 export default function FilterMenu() {
     const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
     const [isFilterOn, setFilterStatus] = useState(false);
-    const [sortBy, setSortBy] = useState('SORT BY');
 	const [issortactive, setSortstatus] = useState(false);
+    const {sortBy,setSortBy} = useContext(MyContext)!;
 
     const selectfilter = (filterValue: string) => {
         setSelectedFilters((prevFilters:string[]) => {
@@ -96,7 +96,7 @@ export default function FilterMenu() {
                         {filtertypes.map((slide,i)=>{
                             const [filterName, filterOptions] = Object.entries(slide)[0];
                             return(
-                                <div className={styles.filterCategory}>
+                                <div className={styles.filterCategory} key={i}>
                                     <h3 className={styles.bold}>{filterName}</h3>
                                     <div className={styles.filterItems}>
                                         { filterOptions.map((item:string,ind:number)=>(
