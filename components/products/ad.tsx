@@ -5,7 +5,7 @@ export default function Ad() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const slides = [
         { id: 1, imgURL: '/images/ads/cloth.jpeg', color:'#44546bdb', secondaryColor: '#e1e5e7',text: 'Slide 1' },
-        { id: 2, imgURL: '/images/ads/sale.jpeg',  color:'#ff0000db', secondaryColor: '#000000',text: 'Slide 2' },
+        { id: 2, imgURL: '/images/ads/shoes.jpg',  color:'#ff0000db', secondaryColor: '#ffffff',text: 'Slide 2' },
         { id: 3, imgURL: '/images/ads/e.jpg',      color:'#848484db', secondaryColor: '#242424',text: 'Slide 3' },
         { id: 4, imgURL: '/images/ads/apple.jpg',  color:'#e0be48db', secondaryColor: '#47464b',text: 'Slide 4' },
         { id: 5, imgURL: '/images/ads/glass.jpg',  color:'#ffffffdb', secondaryColor: '#f9ca40',text: 'Slide 5' },
