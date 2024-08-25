@@ -68,6 +68,7 @@ let products = [
 		title: "phone lorem epsum dolor sit",
 		price: "$99",
 		rating: 4.5,
+		totalRating: '4.5k'
 	},
 	{
 		id: "2",
@@ -75,14 +76,16 @@ let products = [
 		title: "watch tres do unus",
 		price: "$1299",
 		rating: 4,
+		totalRating: '1.2k'
 	},
-	{ id: "3", url: "", title: "nihil nihil nihil", price: "$348", rating: 3 },
+	{ id: "3", url: "", title: "nihil nihil nihil", price: "$348", rating: 3,totalRating: '4.5k' },
 	{
 		id: "4",
 		url: "",
 		title: "blade of miquella , malenaia",
 		price: "$449",
 		rating: 3.7,
+		totalRating: '4.5k'
 	},
 	{
 		id: "5",
@@ -90,6 +93,7 @@ let products = [
 		title: "starscourage rhadhan",
 		price: "$299",
 		rating: 4.4,
+		totalRating: '4.5k'
 	},
 	{
 		id: "6",
@@ -97,6 +101,7 @@ let products = [
 		title: "phone lorem epsum dolor sit",
 		price: "$499",
 		rating: 4.5,
+		totalRating: '4.5k'
 	},
 	{
 		id: "7",
@@ -104,14 +109,23 @@ let products = [
 		title: "watch tres do unus",
 		price: "$799",
 		rating: 4,
+		totalRating: '4.5k'
 	},
-	{ id: "8", url: "", title: "nihil nihil nihil", price: "$1199", rating: 3 },
+	{ 
+		id: "8", 
+		url: "", 
+		title: "nihil nihil nihil", 
+		price: "$1199", 
+		rating: 3,
+		totalRating: '4.5k' 
+	},
 	{
 		id: "9",
 		url: "",
 		title: "blade of miquella , malenaia",
 		price: "$499",
 		rating: 3.7,
+		totalRating: '4.5k'
 	},
 	{
 		id: "10",
@@ -119,6 +133,7 @@ let products = [
 		title: "starscourage rhadhan",
 		price: "$399",
 		rating: 4.4,
+		totalRating: '4.5k'
 	},
 	{
 		id: "11",
@@ -126,6 +141,7 @@ let products = [
 		title: "phone lorem epsum dolor sit",
 		price: "$299",
 		rating: 4.5,
+		totalRating: '4.5k'
 	},
 	{
 		id: "12",
@@ -133,6 +149,7 @@ let products = [
 		title: "watch tres do unus",
 		price: "$199",
 		rating: 4,
+		totalRating: '4.5k'
 	},
 	{
 		id: "13",
@@ -140,6 +157,7 @@ let products = [
 		title: "nihil nihil nihil",
 		price: "$999",
 		rating: 3,
+		totalRating: '4.5k'
 	},
 	{
 		id: "14",
@@ -147,6 +165,7 @@ let products = [
 		title: "blade of miquella , malenaia",
 		price: "$200",
 		rating: 3.7,
+		totalRating: '4.5k'
 	},
 	{
 		id: "15",
@@ -154,6 +173,7 @@ let products = [
 		title: "starscourage rhadhan",
 		price: "$1235",
 		rating: 4.4,
+		totalRating: '4.5k'
 	},
 ];
 export default function Home() {
@@ -234,6 +254,7 @@ export default function Home() {
 									title={item.title}
 									price={item.price}
 									rating={item.rating}
+									totalRating={item.totalRating}
 								/>
 							);
 						})}
@@ -254,6 +275,7 @@ export default function Home() {
 									title={item.title}
 									price={item.price}
 									rating={item.rating}
+									totalRating={item.totalRating}
 								/>
 							);
 						})}
