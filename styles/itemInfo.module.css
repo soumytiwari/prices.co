@@ -1,0 +1,47 @@
+.info_container{
+    width: 45%;
+    color: black;
+    margin: 0px 20px;
+    padding: 10px;
+}
+
+.title{
+    font-size: 25px;
+    font-weight: 700;
+}
+.prices {
+    display: flex;
+    flex-direction: column;
+    /* background-color: rgb(145, 145, 145); */
+    border-radius: 5px;
+    margin: 20px 0px;
+    /* padding: 0px 20px; */
+}
+
+.company_container{
+    display: flex;
+    margin: 5px 0px;
+    padding: 10px 20px;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.company_container:hover{
+    background-color: rgb(243, 243, 243);
+}
+
+.features{
+    padding: 4px;
+    font-size: 12px;
+    border-radius: 4px;
+    margin-left:15px;
+}
+
+.company_price{
+    font-size: 22px;
+    font-weight: 600;
+}
