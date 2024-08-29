@@ -8,6 +8,7 @@ export default function ProductPage() {
 	return (
 		<div className={style.productPage}>
 			<SearchBar />
+			{/* TODO : add sign In button if not signed in*/}
 			{/* TODO : add path here eg. Home >> products >> ... >> */}
 			<Ad/>
 			<MyProvider>
