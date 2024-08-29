@@ -90,6 +90,8 @@
 
 .icon{
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .icon > svg{

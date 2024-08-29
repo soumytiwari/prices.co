@@ -1,5 +1,9 @@
 import styles from '@/styles/itemInfo.module.css'
 import StarRating from '../starRating'
+import ButtonContainer from './buyButtonContainer'
+import { SlHeart } from 'react-icons/sl'
+import { IoShareSocialOutline } from "react-icons/io5";
+import { useState } from 'react';
 
 
 const colors = {
@@ -14,6 +18,9 @@ const colors = {
 }
 
 export default function ItemInfo() {
+
+    const [store, setStore] = useState('store');
+    
 
     const prices = [
         {
@@ -86,25 +93,30 @@ export default function ItemInfo() {
         <div className={styles.info_container}>
             <div className={styles.title}>Title Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae itaque</div>
             <StarRating rating={4.5} totalCount={'4.5k'} id={'asdf'}/>
+            <div className=' flex_start'>
+                <div className={styles.s_items + ' flex_start'} style={{backgroundColor:'#fcdfff', color:'#ed4aff'}}><SlHeart style={{marginRight:'5px'}}/>123</div>
+                <div className={styles.s_items} style={{color:'#4775ff', backgroundColor:'#dce5ff',padding:'9px'}}><SlHeart size={'1.1em'}/></div>
+                <div className={styles.s_items}style={{color:'#ffab34', backgroundColor:'#ffe4bd',padding:'9px'}}><IoShareSocialOutline size={'1.1em'}/></div>
+            </div>
             <div className={styles.prices}>
                 {
                     prices.map((item, indx)=>{
                         return (
-                            <div className={styles.company_container}>
+                            <div key={indx}className={styles.company_container+` ${store == item.company? styles.selected: ''}`} onClick={()=>setStore(item.company)}>
                                 <div style={{display:'flex', alignItems:'center'}}>
-                                <span className={styles.company_name}>{item.company}</span>
-                                {item.features.map((item,indx)=>{
-                                    let color : string
-                                    
-                                    return(
-                                        <span 
-                                        key={indx}
-                                        className={styles.features}
-                                        style={{color:`${item.color}`,border:`1px solid ${item.color}`,boxShadow:`inset 0px 0px 2px ${item.color}, 0 0 4px ${item.color}`}}>{item.type}</span>
-                                    )
-                                })}
+                                    <span className={styles.company_name}>{item.company}</span>
+                                    {item.features.map((item,indx)=>{
+                                        let color : string
+                                        
+                                        return(
+                                            <span 
+                                            key={indx}
+                                            className={styles.features}
+                                            style={{color:`${item.color}`,border:`1px solid ${item.color}`,boxShadow:`inset 0px 0px 2px ${item.color}, 0 0 4px ${item.color}`}}>{item.type}</span>
+                                        )
+                                    })}
                                 </div>
-                                <div style={{display:'flex',}}>
+                                <div>
                                     <span  className={styles.company_price}>{item.price}</span>
                                     {/* <button className={styles.visit}> Visit </button> */}
                                 </div>
@@ -112,6 +124,7 @@ export default function ItemInfo() {
                         )
                     })
                 }
+                <ButtonContainer store={store}/>
             </div>
         </div>
     )

@@ -4,6 +4,7 @@ import BrandLogo from "../brand";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { TbShoppingBag } from "react-icons/tb";
 import { FaRegUser } from "react-icons/fa6";
+import { SlHeart } from "react-icons/sl";
 
 
 const catg = ['All  ','Appliances','Beauty','Clothing & Accessories', 'Electronics & Accessories','Gifts','HandBags','Health','Home & Kitchen','Jeweleries','Shoes and footwaer','Watches']
@@ -71,8 +72,9 @@ export default function SearchBar() {
 				</svg>
 			</div>
 			<div className={style.icon}>
-				<TbShoppingBag size={'1.5em'}	style={{ marginRight:'20px'}}/>
-				<FaRegUser size={'1.2em'}/>
+				<TbShoppingBag size={'1.5em'}/>
+				<SlHeart size={'1.3em'}/>
+				<FaRegUser size={'1.1em'}/>
 			</div>
 			
 		</div>
