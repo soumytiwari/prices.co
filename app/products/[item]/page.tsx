@@ -13,7 +13,7 @@ export default function ProductItem({params}: {params: {item : string}}) {
                 <ImageContainer/>
                 <ItemInfo/>
             </div>
-            <div style={{display:"flex",width:'90%',margin:'auto', border:'2px solid green'}}>
+            <div style={{display:"flex",width:'90%',margin:'auto'}}>
                 <Detailes/>
                 <Rating rating={92}/>
             </div>
