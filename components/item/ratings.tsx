@@ -75,7 +75,7 @@ export default function Rating({ rating }:{rating:number}) {
 
     return (
 		<div className={styles.rating_container}>
-			<span style={{fontSize:'26px', fontWeight:'600', margin:'80px 30px'}}>Rating</span>
+			<span style={{fontSize:'26px', fontWeight:'600', margin:'80px 0px'}}>Rating</span>
 			
             <div ref={circleRef} className={styles.ciclegraph}>
                 <div className={styles.circle}>Amazon | 76%</div>
