@@ -27,8 +27,8 @@ export default function Detailes() {
                 </div>
             <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
                 {chunkedDetails.map((chunk, columnIndex) => (
-                    <div style={{display:"flex"}}>
-                        <div key={columnIndex} style={{whiteSpace:'nowrap',marginTop:'10px',marginRight:'20px'}}>
+                    <div key={columnIndex} style={{display:"flex"}}>
+                        <div style={{whiteSpace:'nowrap',marginTop:'10px',marginRight:'20px'}}>
                             {chunk.map((item, index) => (
                                 <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '20px 0px' }}>
                                     <span style={{ fontWeight: '600', opacity: '0.5' }}>{item.key}</span>
@@ -36,7 +36,7 @@ export default function Detailes() {
                                 </div>
                             ))}
                         </div>
-                        <div key={columnIndex} style={{ whiteSpace:'nowrap',marginTop:'10px', marginRight:'100px'}}>
+                        <div style={{ whiteSpace:'nowrap',marginTop:'10px', marginRight:'100px'}}>
                             {chunk.map((item, index) => (
                                 <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '20px 0px' }}>
                                     {/* <span style={{ fontWeight: '600', opacity: '0.5' }}>{item.key}</span> */}
