@@ -1,10 +1,10 @@
 import { IoStar } from "react-icons/io5";
 import styles from '@/styles/starRating.module.css'
 export default function StarRating(
-    {rating, totalCount, id}:{
+    {rating, totalCount = 0, id}:{
         rating : number,
-        totalCount : string|number
-        id : string
+        totalCount? : string|number
+        id : string|number
     }) {
     const colors = {
         orange: "#F2C265",
@@ -67,7 +67,7 @@ export default function StarRating(
     return (
         <div className={styles.rating}>
             {stars}
-            <span>{totalCount}</span>
+            <span style={{display:`${totalCount == 0? 'none':'inline'}`}}>{totalCount}</span>
         </div>
     )
 }

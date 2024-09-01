@@ -10,6 +10,10 @@ export default function Detailes() {
         { key: 'Sleeve type', value: 'Half Sleeve' },
         { key: 'Collar style', value: 'Collarless' },
         { key: 'Length', value: 'Standard length' },
+        { key: 'Fit Type', value: 'Regular Fit' },
+        { key: 'Sleeve type', value: 'Half Sleeve' },
+        { key: 'Collar style', value: 'Collarless' },
+        { key: 'Length', value: 'Standard length lorem ipsum dolor sit estada pecodt' },
     ];
 
     // Split the details into chunks of 3 or 4 items per column
@@ -22,30 +26,26 @@ export default function Detailes() {
     return (
         <div>
             <div style={{ fontSize: '26px', fontWeight: '600', margin: '80px 0px 20px 0px' }}>Product Details</div>
-                <div style={{ fontWeight: '500', opacity: '0.8' }}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quisquam repudiandae veniam odio unde corrupti quidem nulla consectetur, quibusdam accusantium incidunt ullam suscipit cum vel, numquam dolores velit quos harum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quisquam et, animi nihil obcaecati voluptatibus nisi delectus eveniet reiciendis dolores odit numquam nulla omnis accusantium blanditiis illo quos, expedita culpa?
+            <div style={{ fontWeight: '500', opacity: '0.8' }}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quisquam repudiandae veniam odio unde corrupti quidem nulla consectetur, quibusdam accusantium incidunt ullam suscipit cum vel, numquam dolores velit quos harum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quisquam et, animi nihil obcaecati voluptatibus nisi delectus eveniet reiciendis dolores odit numquam nulla omnis accusantium blanditiis illo quos, expedita culpa?
+            </div>
+            <div style={{fontSize:'14px',display:"flex"}}>
+                <div style={{whiteSpace:'nowrap',marginTop:'10px',marginRight:'20px'}}>
+                    {details.map((item, index) => (
+                        <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '20px 0px' }}>
+                            <span style={{ fontWeight: '600', opacity: '0.5' }}>{item.key}</span>
+                            {/* <span style={{ fontWeight: '600' }}>{item.value}</span> */}
+                        </div>
+                    ))}
                 </div>
-            <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-                {chunkedDetails.map((chunk, columnIndex) => (
-                    <div key={columnIndex} style={{display:"flex"}}>
-                        <div style={{whiteSpace:'nowrap',marginTop:'10px',marginRight:'20px'}}>
-                            {chunk.map((item, index) => (
-                                <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '20px 0px' }}>
-                                    <span style={{ fontWeight: '600', opacity: '0.5' }}>{item.key}</span>
-                                    {/* <span style={{ fontWeight: '600' }}>{item.value}</span> */}
-                                </div>
-                            ))}
+                <div style={{ whiteSpace:'wrap',marginTop:'10px', marginRight:'50px'}}>
+                    {details.map((item, index) => (
+                        <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '20px 0px' }}>
+                            {/* <span style={{ fontWeight: '600', opacity: '0.5' }}>{item.key}</span> */}
+                            <span style={{ fontWeight: '600' }}>{item.value}</span>
                         </div>
-                        <div style={{ whiteSpace:'nowrap',marginTop:'10px', marginRight:'100px'}}>
-                            {chunk.map((item, index) => (
-                                <div key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '20px 0px' }}>
-                                    {/* <span style={{ fontWeight: '600', opacity: '0.5' }}>{item.key}</span> */}
-                                    <span style={{ fontWeight: '600' }}>{item.value}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
     );

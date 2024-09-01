@@ -112,7 +112,7 @@ export default function ItemInfo() {
                                             <span 
                                             key={indx}
                                             className={styles.features}
-                                            style={{color:`${item.color}`,border:`1px solid ${item.color}`,boxShadow:`inset 0px 0px 2px ${item.color}, 0 0 4px ${item.color}`}}>{item.type}</span>
+                                            style={{color:`${item.color}`,border:`1px solid ${item.color}a1`,boxShadow:`inset 0px 0px 4px ${item.color}, 0 0 4px ${item.color}`}}>{item.type}</span>
                                         )
                                     })}
                                 </div>
