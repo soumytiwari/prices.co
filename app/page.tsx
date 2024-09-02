@@ -1,12 +1,10 @@
-"use client";
 import Background from "@/components/homepage/background";
 import Brands from "@/components/homepage/brands";
 import Cards from "@/components/productCards";
 import CategoryCards from "@/components/homepage/categoryCards";
 import style from "@/styles/homepage.module.css";
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import { useRef, useState } from "react";
 import Navbar from "@/components/navbar";
+import Trends from "@/components/trends";
 
 const logos = [
 	"/logos/amazon-logo.png",
@@ -61,7 +59,15 @@ const catogaryimages = [
 	},
 ];
 
-let products = [
+interface product {
+	id :string|number,
+	url : string,
+	title : string,
+	price : string,
+	rating : number,
+	totalRating : string
+}
+let products : product[]= [
 	{
 		id: "1",
 		url: "",
@@ -177,89 +183,13 @@ let products = [
 	},
 ];
 export default function Home() {
-	const scrollContainerRef = useRef<HTMLDivElement>(null);
-	const [scrollInterval, setScrollInterval] = useState<NodeJS.Timeout | null>(
-		null
-	);
-
-	const scroll = (direction: "left" | "right") => {
-		if (scrollContainerRef.current) {
-			const scrollAmount = direction === "right" ? 100 : -100;
-			scrollContainerRef.current.scrollBy({
-				left: scrollAmount,
-				behavior: "smooth",
-			});
-		}
-	};
-
-	const startScrolling = (direction: "left" | "right") => {
-		const interval = setInterval(() => {
-			if (scrollContainerRef.current) {
-				const scrollAmount = direction === "right" ? 300 : -300; // Adjust the value for faster scrolling
-				scrollContainerRef.current.scrollBy({
-					left: scrollAmount,
-					behavior: "smooth",
-				});
-			}
-		}, 50); // Adjust the interval for speed
-		setScrollInterval(interval);
-	};
-
-	const stopScrolling = () => {
-		if (scrollInterval) {
-			clearInterval(scrollInterval);
-			setScrollInterval(null);
-		}
-	};
 	return (
 		<div>
 			<Navbar/>
 			<Background images={images} />
 			<Brands logos={logos} />
 			<div className={style.main_container}>
-				<div className={style.trends}>
-					<div className={style.trendTitle}>
-						<h1>Trending</h1>
-						<div className={style.btncontainer}>
-							<button
-								className={style.scrollbtn}
-								onClick={() => scroll("left")}
-								onMouseDown={() => startScrolling("left")}
-								onMouseUp={stopScrolling}
-								onMouseLeave={stopScrolling}
-							>
-								<BsArrowLeft />
-							</button>
-							<button
-								className={style.scrollbtn}
-								onClick={() => scroll("right")}
-								onMouseDown={() => startScrolling("right")}
-								onMouseUp={stopScrolling}
-								onMouseLeave={stopScrolling}
-							>
-								<BsArrowRight />
-							</button>
-						</div>
-					</div>
-					<div
-						ref={scrollContainerRef}
-						className={style.card_container}
-					>
-						{products.map((item, index) => {
-							return (
-								<Cards
-									key={index}
-									id={item.id}
-									url={item.url}
-									title={item.title}
-									price={item.price}
-									rating={item.rating}
-									totalRating={item.totalRating}
-								/>
-							);
-						})}
-					</div>
-				</div>
+				<Trends title="Trending" products={products}/>
 				<div className={style.trends}>
 					<h1>Top Selling</h1>
 					<div
