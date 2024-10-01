@@ -1,3 +1,4 @@
+'use client'
 import styles from '@/styles/itemInfo.module.css'
 import StarRating from '../starRating'
 import ButtonContainer from './buyButtonContainer'

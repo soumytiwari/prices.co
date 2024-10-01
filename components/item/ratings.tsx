@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, useRef, useState } from 'react';
 import styles from '@/styles/rating.module.css';
 import RatingBar from './ratingBar';

@@ -1,3 +1,4 @@
+'use client'
 import styles from '@/styles/imageContainer.module.css'
 import {useState } from 'react'
 export default function ImageContainer() {

@@ -3,21 +3,16 @@ import Cards from '../productCards';
 import { useContext, useEffect, useState } from 'react';
 import FilterMenu from './filters';
 import { MyContext } from './context';
+import { Card } from '../cardInterface';
 
-interface product {
-		id: string;
-		url: string;
-		title: string;
-		price: string;
-		rating: number;
-}
-let products : product[] = [
+let products: Card[] = [
 	{
 		id: "1",
 		url: "",
 		title: "phone lorem epsum dolor sit",
 		price: "$99",
 		rating: 4.5,
+		totalRating: '4.5k'
 	},
 	{
 		id: "2",
@@ -25,14 +20,16 @@ let products : product[] = [
 		title: "watch tres do unus",
 		price: "$1299",
 		rating: 4,
+		totalRating: '1.2k'
 	},
-	{ id: "3", url: "", title: "nihil nihil nihil", price: "$348", rating: 3 },
+	{ id: "3", url: "", title: "nihil nihil nihil", price: "$348", rating: 3,totalRating: '4.5k' },
 	{
 		id: "4",
 		url: "",
 		title: "blade of miquella , malenaia",
 		price: "$449",
 		rating: 3.7,
+		totalRating: '4.5k'
 	},
 	{
 		id: "5",
@@ -40,6 +37,7 @@ let products : product[] = [
 		title: "starscourage rhadhan",
 		price: "$299",
 		rating: 4.4,
+		totalRating: '4.5k'
 	},
 	{
 		id: "6",
@@ -47,6 +45,7 @@ let products : product[] = [
 		title: "phone lorem epsum dolor sit",
 		price: "$499",
 		rating: 4.5,
+		totalRating: '4.5k'
 	},
 	{
 		id: "7",
@@ -54,92 +53,23 @@ let products : product[] = [
 		title: "watch tres do unus",
 		price: "$799",
 		rating: 4,
+		totalRating: '4.5k'
 	},
-	{ id: "8", url: "", title: "nihil nihil nihil", price: "$1199", rating: 3 },
-	{
-		id: "9",
-		url: "",
-		title: "blade of miquella , malenaia",
-		price: "$499",
-		rating: 3.7,
-	},
-	{
-		id: "10",
-		url: "",
-		title: "starscourage rhadhan",
-		price: "$399",
-		rating: 4.4,
-	},
-	{
-		id: "11",
-		url: "",
-		title: "phone lorem epsum dolor sit",
-		price: "$299",
-		rating: 4.5,
-	},
-	{
-		id: "12",
-		url: "",
-		title: "watch tres do unus",
-		price: "$199",
-		rating: 4,
-	},
-	{
-		id: "13",
-		url: "",
-		title: "nihil nihil nihil",
-		price: "$999",
+	{ 
+		id: "8", 
+		url: "", 
+		title: "nihil nihil nihil", 
+		price: "$1199", 
 		rating: 3,
+		totalRating: '4.5k' 
 	},
-	{
-		id: "14",
-		url: "",
-		title: "blade of miquella , malenaia",
-		price: "$200",
-		rating: 3.7,
-	},
-	{
-		id: "15",
-		url: "",
-		title: "starscourage rhadhan",
-		price: "$1235",
-		rating: 4.4,
-	},
-	{
-		id: "16",
-		url: "",
-		title: "watch tres do unus",
-		price: "$199",
-		rating: 4,
-	},
-	{
-		id: "17",
-		url: "",
-		title: "nihil nihil nihil",
-		price: "$999",
-		rating: 3,
-	},
-	{
-		id: "18",
-		url: "",
-		title: "blade of miquella , malenaia",
-		price: "$200",
-		rating: 3.7,
-	},
-	{
-		id: "19",
-		url: "",
-		title: "starscourage rhadhan",
-		price: "$1235",
-		rating: 4.4,
-	},
-];
+]
 
 const itemsPerPage = 16;
 export default function ResultProducts() {
 
 	const [currentPage, setCurrentPage] = useState(1);
-	const [sorted, setSorted] = useState<product[]>(products);
+	const [sorted, setSorted] = useState<Card[]>(products);
 	const {sortBy} = useContext(MyContext)!;
     const totalPages = Math.ceil(products.length / itemsPerPage);
 	useEffect(()=>{
@@ -189,13 +119,7 @@ export default function ResultProducts() {
             <div className={styles.cardContainer}>
                 {displayedProducts.map((item, index) => {
                     return (
-                        <Cards
-                            key={index}
-                            id={item.id}
-                            url={item.url}
-                            title={item.title}
-                            price={item.price}
-                            rating={item.rating}
+                        <Cards item={item}
                         />
                     );
                 })}

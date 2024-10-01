@@ -1,3 +1,4 @@
+'use client'
 import { useState } from "react";
 import style from "@/styles/searchBar.module.css";
 import BrandLogo from "../brand";
