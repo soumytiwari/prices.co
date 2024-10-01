@@ -5,6 +5,9 @@ import CategoryCards from "@/components/homepage/categoryCards";
 import style from "@/styles/homepage.module.css";
 import Navbar from "@/components/navbar";
 import Trends from "@/components/trends";
+import { useEffect, useState } from "react";
+import SkeletonCard from "@/components/skeletonCards";
+import { Card } from "@/components/cardInterface";
 
 const logos = [
 	"/logos/amazon-logo.png",
@@ -59,15 +62,8 @@ const catogaryimages = [
 	},
 ];
 
-interface product {
-	id :string|number,
-	url : string,
-	title : string,
-	price : string,
-	rating : number,
-	totalRating : string
-}
-let products : product[]= [
+
+let products : Card[]= [
 	{
 		id: "1",
 		url: "",
@@ -190,27 +186,7 @@ export default function Home() {
 			<Brands logos={logos} />
 			<div className={style.main_container}>
 				<Trends title="Trending" products={products}/>
-				<div className={style.trends}>
-					<h1>Top Selling</h1>
-					<div
-						// ref={scrollContainerRef}
-						className={style.alt_card_container}
-					>
-						{products.map((item, index) => {
-							return (
-								<Cards
-									key={index}
-									id={item.id}
-									url={item.url}
-									title={item.title}
-									price={item.price}
-									rating={item.rating}
-									totalRating={item.totalRating}
-								/>
-							);
-						})}
-					</div>
-				</div>
+				
 				<CategoryCards content={catogaryimages} />
 			</div>
 		</div>

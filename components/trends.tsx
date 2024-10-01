@@ -1,27 +1,30 @@
 'use client'
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import Cards from "./productCards";
 import style from '@/styles/trends.module.css'
+import SkeletonCard from "./skeletonCards";
+import { Card } from "./cardInterface";
 
-interface product {
-	id :string|number,
-	url : string,
-	title : string,
-	price : string,
-	rating : number,
-	totalRating : string
-}
 
 export default function Trends({title, products}: {
     title:string,
-    products: product[]
+    products: Card[]
 }) {
-    const scrollContainerRef = useRef<HTMLDivElement>(null);
-	const [scrollInterval, setScrollInterval] = useState<NodeJS.Timeout | null>(
-		null
-	);
 
+    const [loading, setLoading] = useState(false);
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+	const [scrollInterval, setScrollInterval] = useState<NodeJS.Timeout | null>(null);
+
+     // Load this effect on mount
+    useEffect(() => {
+        setLoading(true);
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 10000);
+        // Cancel the timer while unmounting
+        return () => clearTimeout(timer);
+    }, []);
 	const scroll = (direction: "left" | "right") => {
 		if (scrollContainerRef.current) {
 			const scrollAmount = direction === "right" ? 100 : -100;
@@ -81,16 +84,12 @@ export default function Trends({title, products}: {
                 ref={scrollContainerRef}
                 className={style.card_container}
             >
-                {products.map((item, index) => {
+                {loading && <SkeletonCard count={products.length}/>}
+                {!loading && products.map((item, index) => {
                     return (
                         <Cards
                             key={index}
-                            id={item.id}
-                            url={item.url}
-                            title={item.title}
-                            price={item.price}
-                            rating={item.rating}
-                            totalRating={item.totalRating}
+                            item={item}
                         />
                     );
                 })}

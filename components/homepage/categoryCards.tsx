@@ -1,4 +1,6 @@
+'use client'
 import style from "@/styles/categaroyCards.module.css";
+import { useRouter } from "next/navigation";
 export default function CategoryCards({
 	content,
 }: {
@@ -8,6 +10,7 @@ export default function CategoryCards({
 		url: string;
 	}[];
 }) {
+	const router = useRouter();
 	return (
 		<div className={style.categories}>
 			<h1>Browse by Categories</h1>
@@ -21,6 +24,7 @@ export default function CategoryCards({
 							style={{
 								gridArea: `card${index + 1}`,
 							}}
+							onClick={()=>router.push(`/products/${item.title}`)}
 						>
 							<div
 								className={style.gradient}
