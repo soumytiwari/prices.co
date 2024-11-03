@@ -2,10 +2,13 @@ export interface Card{
     id: string;
 	url: string;
 	brand?: string;
-	offer?:string;
+	discount?:string;
 	productType?: string,
 	title: string;
-	price: string;
+	price: number;
+	originalPrice?:number;
 	rating: number;
-	totalRating : string| number
+	totalRating : string| number;
+	features?: {}
 }
+

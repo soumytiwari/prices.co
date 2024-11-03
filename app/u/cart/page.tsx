@@ -7,21 +7,22 @@ import Trends from '@/components/trends';
 import { Card } from '@/components/cardInterface';
 
 const Home = () => {
-  const [cartItems, setCartItems] = useState([
-    { title: 'Bomber Jacket', price: 2318 },
-    { title: 'Tailored Jacket', price: 2728 },
-    { title: 'Coat', price: 649 },
-    { title: 'High-Neck Sweater', price: 600 },
+  const [cartItems, setCartItems] = useState<slipItem[]>([
+    { title: 'Bomber Jacket', price: 2318 , quantity: 1},
+    { title: 'Tailored Jacket', price: 2728, quantity:1 },
+    { title: 'Coat', price: 649, quantity:1},
+    { title: 'High-Neck Sweater',price:345, quantity:1 },
   ]);
 
-  const total = cartItems.reduce((sum, item) => sum + item.price, 0);
+  const total = cartItems.reduce((sum, item) => sum + item.price*item.quantity, 0);
 
   let products : Card[]= [
     {
         id: "1",
         url: "",
-        title: "phone lorem epsum dolor sit",
-        price: "$99",
+        title: "phone lorem epsum dolor sit apple Iphone 16 | 70MP | 120Hz hddffg, ccg vcgct 67bb gn",
+        price: 99,
+        brand:'Apple',
         rating: 4.5,
         totalRating: '4.5k'
     },
@@ -29,16 +30,16 @@ const Home = () => {
         id: "2",
         url: "",
         title: "watch tres do unus",
-        price: "$1299",
+        price: 1299,
         rating: 4,
         totalRating: '1.2k'
     },
-    { id: "3", url: "", title: "nihil nihil nihil", price: "$348", rating: 3,totalRating: '4.5k' },
+    { id: "3", url: "", title: "nihil nihil nihil", price: 348, rating: 3,totalRating: '4.5k' },
     {
         id: "4",
         url: "",
         title: "blade of miquella , malenaia",
-        price: "$449",
+        price: 449,
         rating: 3.7,
         totalRating: '4.5k'
     },
@@ -46,7 +47,7 @@ const Home = () => {
         id: "5",
         url: "",
         title: "starscourage rhadhan",
-        price: "$299",
+        price: 299,
         rating: 4.4,
         totalRating: '4.5k'
     },
@@ -54,7 +55,7 @@ const Home = () => {
         id: "6",
         url: "",
         title: "phone lorem epsum dolor sit",
-        price: "$499",
+        price: 499,
         rating: 4.5,
         totalRating: '4.5k'
     },
@@ -62,7 +63,7 @@ const Home = () => {
         id: "7",
         url: "",
         title: "watch tres do unus",
-        price: "$799",
+        price: 799,
         rating: 4,
         totalRating: '4.5k'
     },
@@ -70,7 +71,7 @@ const Home = () => {
         id: "8", 
         url: "", 
         title: "nihil nihil nihil", 
-        price: "$1199", 
+        price: 1199, 
         rating: 3,
         totalRating: '4.5k' 
     },
@@ -79,6 +80,9 @@ const Home = () => {
   return (
     <div style={{width: '90%', margin:'auto'}}>
     <div className={styles.container}>
+
+
+
       <div className={styles.product_list}>
         <ProductCard
           image="/bomber-jacket.png"
@@ -107,7 +111,7 @@ const Home = () => {
       </div>
 
       <div className={styles.checkout_container}>
-        <CheckoutSlip items={cartItems} total={total} />
+        <CheckoutSlip items={cartItems} total={total}/>
       </div>
     </div>
     <Trends title='Recommended for You' products={products}/>
