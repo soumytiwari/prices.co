@@ -5,10 +5,11 @@ export interface Card{
 	discount?:string;
 	productType?: string,
 	title: string;
-	price: number;
-	originalPrice?:number;
-	rating: number;
-	totalRating : string| number;
-	features?: {}
+	price: string | number;
+	originalPrice?: string | number;
+	rating: string | number;
+	totalRating : string | number;
+	features?: {};
+	mainImage?: string;
 }
 
