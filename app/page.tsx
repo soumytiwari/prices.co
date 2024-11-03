@@ -181,7 +181,7 @@ let products : Card[]= [
 export default function Home() {
 	return (
 		<div>
-			<Navbar/>
+			{/* <Navbar/> */}
 			<Background images={images} />
 			<Brands logos={logos} />
 			<div className={style.main_container}>
