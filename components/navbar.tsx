@@ -1,5 +1,4 @@
 import { Righteous } from "next/font/google";
-import Link from "next/link";
 import style from "@/styles/navbar.module.css";
 import BrandLogo from "./brand";
 
@@ -12,7 +11,7 @@ export default function Navbar() {
 	return (
 		<div className={style.navbar}>
 			<BrandLogo />
-			<ul className={style.navlist}>
+			<ul className={style.navlist+' '+anton.className}>
 				<li className={style.navlink}>TRACKER</li>
 				<li className={style.navlink}>ABOUT</li>
 				<li className={style.navlink}>CONTACT</li>

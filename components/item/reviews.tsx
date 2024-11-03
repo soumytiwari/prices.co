@@ -1,7 +1,9 @@
-import React from 'react';
+'use client'
+import { useState } from 'react';
 import styles from '@/styles/reviews.module.css'; // Assuming you have CSS modules enabled
 import StarRating from '../starRating';
 import { IoMdThumbsUp } from "react-icons/io";
+import SubmitReview from './submitReview';
 
 interface Review {
   id: number;
@@ -197,6 +199,7 @@ const reviews: Review[] = [
  ]
 
 export default function Reviews() {
+    const [writeReview, setWriteReview] = useState(false);
   return (
     <div className={styles.reviewsContainer}>
         {reviews.length > 0 ? (
@@ -239,8 +242,9 @@ export default function Reviews() {
         )}
         <div style={{boxSizing:"border-box",  display:'flex', alignItems:'center', justifyContent:"center",width:'100%', margin:'auto'}}>
             <button className={styles.seeAllReviews} style={{display:`${reviews.length == 0?'none':'inline'}`}}>See All Reviews</button>
-            <button className={styles.writeReview}>Write a Review</button>
+            <button onClick={()=>setWriteReview(!writeReview)} className={styles.writeReview}>Write a Review</button>
         </div>
+            <SubmitReview display={writeReview}/>
         </div>
     );
 };

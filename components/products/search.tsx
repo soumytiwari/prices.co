@@ -1,15 +1,19 @@
 'use client'
 import { useState } from "react";
 import style from "@/styles/searchBar.module.css";
-import BrandLogo from "../brand";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { TbShoppingBag } from "react-icons/tb";
 import { FaRegUser } from "react-icons/fa6";
 import { SlHeart } from "react-icons/sl";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 
 const catg = ['All  ','Appliances','Beauty','Clothing & Accessories', 'Electronics & Accessories','Gifts','HandBags','Health','Home & Kitchen','Jeweleries','Shoes and footwaer','Watches']
 export default function SearchBar() {
+
+	const router = useRouter();
+
 	const [inputValue, setInput] = useState("");
 	const [category, setCategory] = useState('Category');
 	const [iscategoryactive, setCategorystatus] = useState(false);
@@ -23,7 +27,7 @@ export default function SearchBar() {
 	};
 	return (
 		<div className={style.searchBar}>
-			<BrandLogo />
+			{/* <BrandLogo /> */}
 			<div className={style.inputBar}>
 				<button
 					className={style.categoryBtn}
@@ -73,9 +77,8 @@ export default function SearchBar() {
 				</svg>
 			</div>
 			<div className={style.icon}>
-				<TbShoppingBag size={'1.5em'}/>
-				<SlHeart size={'1.3em'}/>
-				<FaRegUser size={'1.1em'}/>
+				<Link href={'u/cart'}><TbShoppingBag size={'1.5em'}/></Link>
+				<Link href={'u/likes'}><SlHeart size={'1.3em'}/></Link>
 			</div>
 			
 		</div>

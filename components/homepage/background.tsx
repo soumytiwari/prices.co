@@ -1,10 +1,9 @@
 "use client";
 
 import { KeyboardEvent, useState } from "react";
-import Navbar from "@/components/navbar";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import styles from "@/styles/background.module.css";
-
+import {useRouter } from "next/navigation";
 import { Josefin_Sans } from "next/font/google";
 
 const inter = Josefin_Sans({
@@ -14,13 +13,14 @@ const inter = Josefin_Sans({
 export default function Background({ images }: { images: string[] }) {
 	const [currentImage, setCurrentImage] = useState(0);
 	const [inputValue, setInput] = useState("");
+	const router = useRouter();
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (event.key == "Enter") {
-			console.log(inputValue);
+			handleSearch();
 		}
 	};
 	const handleSearch = () => {
-		console.log("pressed");
+		router.push(`/products/${inputValue}`);
 	};
 
 	const previousImage = () => {

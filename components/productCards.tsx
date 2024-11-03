@@ -24,9 +24,9 @@ export default function Cards({
 				<SlHeart className={style.like} />
 			</div>
 			<div className={style.card_info}>
-				<div className={style.price}>{item.price}</div>
-				<div className={style.price}>{item.brand}</div>
+				<div className={style.price}>${item.price}</div>
 				<div className={style.title}>{item.title}</div>
+				<div className={style.brand}>{item.brand}</div>
 				<StarRating rating={item.rating} totalCount={item.totalRating} id={item.id}/>
 			</div>
 		</div>
