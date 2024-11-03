@@ -29,15 +29,26 @@
     background: radial-gradient(circle, white,gray);
 }
 .price{
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
-    margin-bottom: 10px;
 }
 
 .title{
-    margin-bottom: 5px;
-    font-size: 18px;
+    border: 2px solid green;
+    width: 25S0px;
+    height: 50px;
+    /* margin-bottom: 5px; */
+    font-size: 16px;
     font-weight: 400;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.brand{
+    font-weight: bold;
+    font-size: 14px;
+
 }
 
 .card_info{

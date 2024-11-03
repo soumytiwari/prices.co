@@ -39,10 +39,10 @@
     left: 0;
     transition: all 0.3s;
 }
-.c:hover .gradient,
-.c:focus .gradient {
+/* .gradient:hover,
+.gradient.focus {
   transform: scale(1.1);
-}
+} */
 
 .categoryCard_container{
     /* padding: 20px 0px; */

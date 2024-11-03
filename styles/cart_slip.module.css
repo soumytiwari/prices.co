@@ -6,6 +6,11 @@
   padding: 20px;
   border-radius: 10px;
 }
+
+.checkout_heading{
+  display: flex;
+  justify-content: space-between;
+}
   
 .checkout_button {
   width: 100%;
