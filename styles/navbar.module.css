@@ -6,10 +6,11 @@
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    /* background-image: linear-gradient(rgba(0,0,0,0.9) 10%, rgba(0,0,0,0)); */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.167) 2%, rgba(0,0,0,0));
     z-index: 1;
     backdrop-filter: blur(12px);
     color: black;
+    /* background-color: rgba(255, 255, 255, 0.046); */
 }
 .navlist {
     list-style: none;
