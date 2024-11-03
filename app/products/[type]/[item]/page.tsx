@@ -65,6 +65,7 @@ export default function ProductItem({params}: {params: {item : string}}) {
             rating: 3,
             totalRating: '4.5k' 
         },
+        
     ]
     return(
         <div style={{color:"black"}}>
