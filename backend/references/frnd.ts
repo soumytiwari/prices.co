@@ -1,17 +1,15 @@
-export interface Card{
-    // id: string;
-	// url: string;
-    // mainImage: string;
-	// title: string;
-	// brand?: string;	still left
-	// rating: number;
-	// totalRating : string| number;
-	price: number;
-	discount?:string;
-    images: string;
-	originalPrice?:number;
-	features?: {}
+interface Card {
+    id: string,
+	url: string,
+	brand?: string,
+	discount?:string,
 	productType?: string,
+	title: string,
+	price: string | number,
+	originalPrice?: string | number,
+	rating: string | number,
+	totalRating : string | number,
+	features?: {},
+	mainImage?: string,
 }
 
-// all string rn
