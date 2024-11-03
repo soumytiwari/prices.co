@@ -1,4 +1,5 @@
 import { chromium } from 'playwright';
+// import { Card } from '../../components/cardInterface'
 
 async function searchAndLogData() {
   const browser = await chromium.launch({ headless: false });
@@ -7,7 +8,7 @@ async function searchAndLogData() {
 
   // Enter "clothes" in the search bar and submit the search
   // await page.fill('#twotabsearchtextbox', 'clothes');
-  await page.fill('#twotabsearchtextbox', 'resistance bands');
+  await page.fill('#twotabsearchtextbox', 'clothes');
   await page.press('#twotabsearchtextbox', 'Enter');
 
   // Wait for search results to load
@@ -20,8 +21,9 @@ async function searchAndLogData() {
   while (hasNextPage) {
     const results = await page.evaluate(() => {
       const cardList = document.querySelectorAll(".s-asin > .sg-col-inner");
-      const cards: Array<{ id: string; url: string; title: string;  brand: string; mainImage: string; rating: string; totalRating: string; }> = [];
-  
+      const cards: Array<{ id: string; url: string; title: string;  brand: string; mainImage: string; rating: number | null; totalRating: string; }> = [];
+      // const cards: Array<Card> = []
+
       cardList.forEach((card, index) => {
         const mainImageElement = card.querySelector("img.s-image") as HTMLImageElement | null;
         const urlElement = card.querySelector("a.a-link-normal.s-no-outline") as HTMLAnchorElement | null;
@@ -32,15 +34,20 @@ async function searchAndLogData() {
   
         let title = titleElement ? titleElement.innerHTML : 'null'
         let brand = brandElement ? brandElement.innerHTML : 'null'
-        let rating = ratingElement ? ratingElement.innerHTML : 'null'
+        let rating_string = ratingElement ? ratingElement.innerHTML : 'null'
   
         if (brand === title) {
           const firstWord = title.split(' ')[0]
           brand = firstWord
         } 
   
-        rating = rating.split(' ')[0]
-        
+        // rating = Number(rating_string.split(' ')[0])        
+        let rating;
+        if(rating_string === 'null') {
+          rating = null
+        } else {
+          rating = Number(rating_string.split(' ')[0])
+        }
   
         const cardData = {
           id: (index + 1).toString(),
@@ -60,11 +67,17 @@ async function searchAndLogData() {
 
     allCards.push(...results)
 
-    const nextButton = await page.$()
+    const nextButton = await page.$("a.s-pagination-next")
+    if(nextButton) {
+      await nextButton.click()
+      await page.waitForSelector('.s-main-slot', {timeout: 10000})
+      await page.waitForTimeout(2000)
+    } else {
+      hasNextPage = false
+    }
   }
 
-
-  console.log("Cards:", results);
+  console.log("All Cards:", allCards);
 
   await browser.close();
 }
