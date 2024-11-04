@@ -8,7 +8,7 @@ async function searchAndLogData() {
 
   // Enter "clothes" in the search bar and submit the search
   // await page.fill('#twotabsearchtextbox', 'clothes');
-  await page.fill('#twotabsearchtextbox', 'clothes');
+  await page.fill('#twotabsearchtextbox', 'balls');
   await page.press('#twotabsearchtextbox', 'Enter');
 
   // Wait for search results to load
@@ -65,7 +65,12 @@ async function searchAndLogData() {
       return cards;
     });
 
-    allCards.push(...results)
+    // commenting the below line, to erase the error red-line.
+    // The following line is important
+    // un-comment it when use..
+    // have all the package.json, node_modules, tsconfig.json, etc. 
+    // and keep this file in src/..area of root-dir.
+    // allCards.push(...results)
 
     const nextButton = await page.$("a.s-pagination-next")
     if(nextButton) {
@@ -83,3 +88,7 @@ async function searchAndLogData() {
 }
 
 searchAndLogData();
+
+
+
+
